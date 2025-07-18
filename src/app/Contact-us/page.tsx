@@ -51,7 +51,7 @@ const ContactUs = () => {
         {/* Content */}
         <div className="relative z-10">
           <div className="flex flex-col items-center justify-center h-64">
-            <h2 className="text-[#60C130] text-lg font-extrabold mb-2 mt-8 uppercase tracking-wide text-center">
+            <h2 className="text-[#ffc107] text-lg font-extrabold mb-2 mt-8 uppercase tracking-wide text-center">
               CONTACT UPSIDE TAX
             </h2>
             <h1 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4">
@@ -78,7 +78,7 @@ const ContactUs = () => {
                 <p className="mb-6 text-black">{card.desc}</p>
                 <a
                   href={card.link}
-                  className="bg-[#60C130] hover:bg-[#4ea326] text-white font-bold py-2 px-6 rounded transition"
+                  className="bg-[#ffc107] text-black font-bold py-2 px-6 rounded transition"
                 >
                   {card.btn}
                 </a>
@@ -97,7 +97,7 @@ const ContactUs = () => {
                 <p className="mb-6 text-black">{card.desc}</p>
                 <a
                   href={card.link}
-                  className="bg-[#60C130] hover:bg-[#4ea326] text-white font-bold py-2 px-6 rounded transition"
+                  className="bg-[#ffc107] text-black font-bold py-2 px-6 rounded transition"
                 >
                   {card.btn}
                 </a>

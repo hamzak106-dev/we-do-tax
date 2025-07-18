@@ -17,7 +17,7 @@ export default function Footer() {
         </p>
         <div className="inline-block">
           <Link href="/quote-page">
-            <span className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-3 px-6 rounded-md inline-block text-lg">
+            <span className="bg-[#ffc107]   text-black font-bold py-3 px-6 rounded-md inline-block text-lg">
               REQUEST A QUOTE
             </span>
           </Link>
@@ -34,48 +34,48 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Upside Tax, LLC</h3>
           <ul className="space-y-3 text-lg">
             <li className="flex items-start  gap-3">
-              <FaMapPin className="text-lime-500 mt-1" size={18} />
+              <FaMapPin className="text-[#ffc107] mt-1" size={18} />
               <span>2 Gold Street, New York, NY 10038</span>
             </li>
             <li className="flex items-start gap-3">
-              <FaPhone className="text-lime-500 mt-1" size={18} />
+              <FaPhone className="text-[#ffc107] mt-1" size={18} />
               <span>Submit online form to contact us</span>
             </li>
             <li className="flex items-start gap-3">
-              <FaEnvelope className="text-lime-500 mt-1" size={18} />
-              <span>info@upsidetax.com</span>
+              <FaEnvelope className="text-[#ffc107] mt-1" size={18} />
+              <span>info@wedotax.com</span>
             </li>
           </ul>
         </div>
 
         {/* Navigation Column */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 border-b border-lime-500 inline-block pr-4">
+          <h3 className="text-lg font-semibold mb-4 border-b border-[#ffc107] inline-block pr-4">
             Navigation
           </h3>
           <ul className="space-y-2 text-lg">
             <li>
-              <Link href="/" className="hover:text-lime-400">
+              <Link href="/" className="hover:text-[#ffc107]">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:text-lime-400">
+              <Link href="/services" className="hover:text-[#ffc107]">
                 Services
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-lime-400">
+              <Link href="/about" className="hover:text-[#ffc107]">
                 About Us
               </Link>
             </li>
             <li>
-              <Link href="/resources" className="hover:text-lime-400">
+              <Link href="/resources" className="hover:text-[#ffc107]">
                 Resources
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-lime-400">
+              <Link href="/contact" className="hover:text-[#ffc107]">
                 Contact Us
               </Link>
             </li>
@@ -93,7 +93,7 @@ export default function Footer() {
                 href="https://www.google.com/search?q=Upside+Tax+LLC"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-lime-400 block"
+                className="hover:text-[#ffc107] block"
               >
                 Read our reviews on Google
               </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
 
       {/* Bottom Footer */}
       <div className="text-center py-4 text-lg text-gray-400 border-t border-gray-700">
-        © Upside Tax, LLC
+        © WeDoTax, LLC
       </div>
     </footer>
   );

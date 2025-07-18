@@ -7,7 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import Testimonials from "@/components/Testnomials/Testimonials";
 export default function HomePage() {
   return (
-    <main>
+    <main className="bg-white">
       <Header />
       <Banner />
       <Services />

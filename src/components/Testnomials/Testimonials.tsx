@@ -104,10 +104,10 @@ const Testimonials = () => {
               bottom: -40px;
             }
             .testimonials-slider .slick-dots li button:before {
-              color: #60c130;
+              color: #ffc107;
             }
             .testimonials-slider .slick-dots li.slick-active button:before {
-              color: #60c130;
+              color: #ffc107;
             }
             .testimonials-slider .slick-prev,
             .testimonials-slider .slick-next {
@@ -121,7 +121,7 @@ const Testimonials = () => {
             }
             .testimonials-slider .slick-prev:before,
             .testimonials-slider .slick-next:before {
-              color: #60c130;
+              color: #ffc107;
             }
           `}</style>
           <Slider {...settings}>
@@ -151,7 +151,7 @@ const Testimonials = () => {
                       <FaStar key={i} className="text-yellow-400 w-5 h-5" />
                     ))}
                   </div>
-                  <FaQuoteLeft className="text-[#60C130] w-6 h-6 mb-4" />
+                  <FaQuoteLeft className="text-[#0B3D91] w-6 h-6 mb-4" />
                   <p className="text-gray-600 text-lg italic">
                     {testimonial.text}
                   </p>

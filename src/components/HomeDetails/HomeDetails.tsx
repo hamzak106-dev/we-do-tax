@@ -13,7 +13,7 @@ const steps = [
         Submit your info via our{" "}
         <a
           href="/quote-page"
-          className="text-green-600 underline hover:text-green-700"
+          className="text-blue-600 underline hover:text-blue-700"
         >
           quote page
         </a>
@@ -54,7 +54,7 @@ const steps = [
 
 export default function TaxFilingSteps() {
   return (
-    <section className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <section   className="bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-10">
           Our Simple Process for Tax Filing
@@ -63,7 +63,7 @@ export default function TaxFilingSteps() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-green-50 rounded-xl shadow-md p-5 flex flex-col items-start"
+              className="bg-blue-50 rounded-xl shadow-md p-5 flex flex-col items-start"
             >
               <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
                 <Image

@@ -15,21 +15,21 @@ const GeneralInquiryForm = () => (
           <label className="font-semibold mb-1">Name</label>
           <input
             type="text"
-            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#60C130]"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffc107]"
           />
         </div>
         <div className="flex flex-col">
           <label className="font-semibold mb-1">Email Address</label>
           <input
             type="email"
-            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#60C130]"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffc107]"
           />
         </div>
         <div className="flex flex-col">
           <label className="font-semibold mb-1">Phone Number (Optional)</label>
           <input
             type="tel"
-            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#60C130]"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffc107]"
           />
         </div>
         <div className="flex flex-col">
@@ -37,7 +37,7 @@ const GeneralInquiryForm = () => (
             Which services are you interested in?
           </label>
           <select
-            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#60C130]"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffc107]"
             multiple
             size={5}
           >
@@ -52,7 +52,7 @@ const GeneralInquiryForm = () => (
       <div className="flex flex-col mt-2">
         <label className="font-semibold mb-1">How can we help?</label>
         <textarea
-          className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#60C130]"
+          className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffc107]"
           rows={4}
           placeholder="Add more information here"
         />
@@ -60,7 +60,7 @@ const GeneralInquiryForm = () => (
       <div className="flex justify-start mt-2">
         <button
           type="submit"
-          className="bg-[#60C130] hover:bg-[#4ea326] text-white font-semibold py-2 px-8 rounded text-lg shadow transition-all duration-200"
+          className="bg-[#1F5893]   text-white font-semibold py-2 px-8 rounded text-lg shadow transition-all duration-200"
         >
           Submit
         </button>
