@@ -51,7 +51,7 @@ import { FaFileAlt, FaClipboardCheck, FaMoneyCheckAlt } from "react-icons/fa";
 
 export default function AboutProcessSection() {
   return (
-    <section id="about" className="bg-white py-20 px-20 md:px-20 max-w-[1440px] m-auto">
+    <section id="about" className="bg-white md:py-20 py-10 px-10 md:px-20 max-w-[1440px] m-auto">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* LEFT: About RTD Tax */}
         <div>
@@ -70,37 +70,38 @@ export default function AboutProcessSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-10">
             Process for Tax Filing
           </h2>
-          <div className="flex flex-col sm:flex-row items-start justify-between gap-0">
-            {/* Step 1 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-[#1a4d91] text-white rounded-full p-4 text-3xl mb-3">
-                <FaFileAlt />
-              </div>
-              <p className="text-sm font-semibold text-black">Document Upload</p>
-            </div>
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 md:gap-0 text-center">
+  {/* Step 1 */}
+  <div className="flex flex-col items-center">
+    <div className="bg-[#1a4d91] text-white rounded-full p-4 text-3xl mb-3">
+      <FaFileAlt />
+    </div>
+    <p className="text-sm font-semibold text-black">Document Upload</p>
+  </div>
 
-            {/* Arrow */}
-            <div className="hidden sm:block text-3xl text-gray-400">→</div>
+  {/* Arrow */}
+  <div className="hidden md:block text-3xl text-gray-400 mx-4">→</div>
 
-            {/* Step 2 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-[#ffc107] text-white rounded-full p-4 text-3xl mb-3">
-                <FaClipboardCheck />
-              </div>
-              <p className="text-sm font-semibold text-black">Review & Preparation</p>
-            </div>
+  {/* Step 2 */}
+  <div className="flex flex-col items-center">
+    <div className="bg-[#ffc107] text-white rounded-full p-4 text-3xl mb-3">
+      <FaClipboardCheck />
+    </div>
+    <p className="text-sm font-semibold text-black">Review & Preparation</p>
+  </div>
 
-            {/* Arrow */}
-            <div className="hidden sm:block text-3xl text-gray-400">→</div>
+  {/* Arrow */}
+  <div className="hidden md:block text-3xl text-gray-400 mx-4">→</div>
 
-            {/* Step 3 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-[#1a4d91] text-white rounded-full p-4 text-3xl mb-3">
-                <FaMoneyCheckAlt />
-              </div>
-              <p className="text-sm font-semibold text-black">Filing & Refund</p>
-            </div>
-          </div>
+  {/* Step 3 */}
+  <div className="flex flex-col items-center">
+    <div className="bg-[#1a4d91] text-white rounded-full p-4 text-3xl mb-3">
+      <FaMoneyCheckAlt />
+    </div>
+    <p className="text-sm font-semibold text-black">Filing & Refund</p>
+  </div>
+</div>
+
         </div>
       </div>
     </section>
