@@ -21,14 +21,38 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transporter using Gmail
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    // Determine SMTP configuration based on email domain
+    const emailDomain = process.env.EMAIL_USER?.split('@')[1];
+    let transporterConfig;
+
+    if (emailDomain === 'gmail.com') {
+      // Gmail configuration
+      transporterConfig = {
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      };
+    } else {
+      // Generic SMTP configuration for custom domains
+      // This should work for most email providers including custom domains
+      transporterConfig = {
+        host: "smtp.gmail.com", // Try Gmail SMTP first
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+        tls: {
+          rejectUnauthorized: false
+        }
+      };
+    }
+
+    console.log(`Attempting to configure email for domain: ${emailDomain}`);
+    const transporter = nodemailer.createTransport(transporterConfig);
 
     // Verify transporter configuration
     try {
@@ -36,14 +60,78 @@ export async function POST(request: NextRequest) {
       console.log("Email transporter verified successfully");
     } catch (verifyError) {
       console.error("Email transporter verification failed:", verifyError);
+      
+      // Try alternative configuration if the first one fails
+      if (emailDomain !== 'gmail.com') {
+        console.log("Trying alternative SMTP configuration...");
+        
+        const alternativeConfig = {
+          host: "mail." + emailDomain, // Try domain-specific SMTP
+          port: 587,
+          secure: false,
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        };
+
+        const alternativeTransporter = nodemailer.createTransport(alternativeConfig);
+        
+        try {
+          await alternativeTransporter.verify();
+          console.log("Alternative email transporter verified successfully");
+          // Use the alternative transporter for sending
+          return await sendEmailWithTransporter(alternativeTransporter, { name, email, phone, service, message });
+        } catch (altVerifyError) {
+          console.error("Alternative transporter also failed:", altVerifyError);
+        }
+      }
+      
+      // Return detailed error information for debugging
       return NextResponse.json(
         {
-          error:
-            "Email configuration is invalid. Please check your credentials.",
+          error: "Email configuration is invalid. Please check your credentials.",
+          details: verifyError instanceof Error ? verifyError.message : "Unknown verification error",
+          suggestions: [
+            "1. Verify that your email and app password are correct",
+            "2. If using Gmail, make sure you're using an App Password (not your regular password)",
+            "3. If using a custom domain, contact your email provider for SMTP settings",
+            "4. Make sure 2-factor authentication is enabled for Gmail accounts"
+          ],
+          debugInfo: {
+            emailDomain,
+            configType: emailDomain === 'gmail.com' ? 'Gmail Service' : 'Custom SMTP',
+            user: process.env.EMAIL_USER,
+          }
         },
         { status: 500 }
       );
     }
+
+    // Send email using the verified transporter
+    return await sendEmailWithTransporter(transporter, { name, email, phone, service, message });
+
+  } catch (error) {
+    console.error("Error in contact API:", error);
+    return NextResponse.json(
+      {
+        error: "Failed to process contact form",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 }
+    );
+  }
+}
+
+// Helper function to send email
+async function sendEmailWithTransporter(
+  transporter: nodemailer.Transporter, 
+  formData: { name: string; email: string; phone?: string; service: string; message: string }
+) {
+  const { name, email, phone, service, message } = formData;
 
     // Email content
     const mailOptions = {
@@ -168,14 +256,4 @@ export async function POST(request: NextRequest) {
       { message: "Email sent successfully!" },
       { status: 200 }
     );
-  } catch (error) {
-    console.error("Error sending email:", error);
-    return NextResponse.json(
-      {
-        error: "Failed to send email",
-        details: error instanceof Error ? error.message : "Unknown error",
-      },
-      { status: 500 }
-    );
-  }
 }
