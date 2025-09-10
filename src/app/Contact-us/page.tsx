@@ -2,36 +2,43 @@ import React from "react";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import GeneralInquiryForm from "@/components/GeneralInquiryForm/GeneralInquiryForm";
+
 const cards = [
   {
-    title: "Personal",
-    desc: "Complete tax preparation services for individuals earning through W-2s and other income streams",
+    title: "Core Tax & Compliance Services",
+    desc: "We provide end-to-end tax filing solutions for individuals and businesses of all sizes. From Form 1040 for personal returns to LLC, S-Corp, C-Corp, and partnership filings, our team ensures compliance while maximizing deductions. We also specialize in multi-state and international tax cases, helping clients with cross-border income and assets stay fully compliant.",
     btn: "GET A QUOTE",
-    link: "#",
+    link: "/Contact-us",
   },
   {
-    title: "Freelancer",
-    desc: "Sole proprietors and single-member LLCs (with or without additional W-2s and other sources of income)",
+    title: "Tax Planning & Strategy",
+    desc: "Our proactive approach to tax planning helps you reduce liabilities year-round instead of waiting until filing season. Whether it's retirement planning, investment strategies, R&D credits, or even crypto tax reporting, we design strategies to keep more money in your pocket while staying fully compliant.",
     btn: "GET A QUOTE",
-    link: "#",
+    link: "/Contact-us",
   },
   {
-    title: "Business",
-    desc: "Companies of all sizes including multi-member LLCs, S Corporations, and B Corporations",
-    btn: "GET A QUOTE",
-    link: "#",
-  },
-  {
-    title: "Fractional CFO Services",
-    desc: "Strategic financial planning and analysis, helping to guide your business through growth and change.",
+    title: "Audit & IRS Support",
+    desc: "Facing the IRS can be stressful, but you don't have to go through it alone. We represent clients during audits with expert defense and also offer prepaid audit protection plans that give you peace of mind long before an audit ever occurs.",
     btn: "CONTACT US",
-    link: "#",
+    link: "/Contact-us",
   },
   {
-    title: "Family Offices",
-    desc: "Simplify your financial life, ensuring long-term financial security, and maintaining your family's legacy.",
+    title: "Accounting & Advisory Services",
+    desc: "Stay on top of your finances with accurate bookkeeping, payroll processing, and monthly reporting. For growing businesses, our Virtual CFO and Controller services provide financial oversight, budgeting, and forecasting. We also offer personalized business advisory services for cash flow management, debt restructuring, and succession planning.",
     btn: "CONTACT US",
-    link: "#",
+    link: "/Contact-us",
+  },
+  {
+    title: "Client Experience & Security",
+    desc: "Your financial data deserves the highest level of protection. Our secure client portal enables safe document uploads and seamless communication. We also assist with online reputation management to help businesses maintain a strong and trusted digital presence.",
+    btn: "CONTACT US",
+    link: "/Contact-us",
+  },
+  {
+    title: "Flexible & Outsourced Solutions",
+    desc: "Whether you're a CPA firm needing seasonal tax outsourcing or a business requiring short-term project support, we provide flexible solutions that adapt to your needs. From hourly support to one-off services, we make professional tax help accessible on your terms.",
+    btn: "CONTACT US",
+    link: "/Contact-us",
   },
 ];
 
@@ -52,22 +59,21 @@ const ContactUs = () => {
         <div className="relative z-10">
           <div className="flex flex-col items-center justify-center h-64">
             <h2 className="text-[#ffc107] text-lg font-extrabold mb-2 mt-8 uppercase tracking-wide text-center">
-              CONTACT UPSIDE TAX
+              CONTACT We Do Tax
             </h2>
             <h1 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4">
               GET EXPERT HELP WITH YOUR TAXES
             </h1>
             <p className="text-white text-lg text-center max-w-2xl mx-auto font-normal">
-              If you&apos;re looking for a{" "}
-              <span className="font-bold">custom quote</span> for your tax
-              needs, choose one of the options below.
+              Choose from our comprehensive range of{" "}
+              <span className="font-bold">professional tax services</span> below.
               <br />
-              Otherwise continue down to our general contact form below.
+              Otherwise continue down to our general contact form.
             </p>
           </div>
-          {/* Cards grid */}
+          {/* Cards grid - Updated to show all 6 services in a 3x2 grid */}
           <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {cards.slice(0, 3).map((card) => (
+            {cards.map((card) => (
               <div
                 key={card.title}
                 className="bg-white rounded-lg shadow p-8 flex flex-col items-center text-center"
@@ -75,29 +81,12 @@ const ContactUs = () => {
                 <h3 className="text-2xl font-bold mb-3 text-black">
                   {card.title}
                 </h3>
-                <p className="mb-6 text-black">{card.desc}</p>
+                <p className="mb-6 text-black text-[15px] leading-relaxed flex-grow">
+                  {card.desc}
+                </p>
                 <a
                   href={card.link}
-                  className="bg-[#ffc107] text-black font-bold py-2 px-6 rounded transition"
-                >
-                  {card.btn}
-                </a>
-              </div>
-            ))}
-          </div>
-          <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 pb-16">
-            {cards.slice(3).map((card) => (
-              <div
-                key={card.title}
-                className="bg-white rounded-lg shadow p-8 flex flex-col items-center text-center"
-              >
-                <h3 className="text-2xl font-bold mb-3 text-black">
-                  {card.title}
-                </h3>
-                <p className="mb-6 text-black">{card.desc}</p>
-                <a
-                  href={card.link}
-                  className="bg-[#ffc107] text-black font-bold py-2 px-6 rounded transition"
+                  className="bg-[#ffc107] text-black font-bold py-2 px-6 rounded transition hover:bg-yellow-400"
                 >
                   {card.btn}
                 </a>

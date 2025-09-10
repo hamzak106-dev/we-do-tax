@@ -16,7 +16,7 @@ export default function Footer() {
           situation.
         </p>
         <div className="inline-block">
-          <Link href="/quote-page">
+          <Link href="/Contact-us">
             <span className="bg-[#ffc107]   text-black font-bold py-3 px-6 rounded-md inline-block text-lg">
               REQUEST A QUOTE
             </span>
@@ -31,7 +31,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-gray-700">
         {/* Contact Column */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Upside Tax, LLC</h3>
+          <h3 className="text-lg font-semibold mb-4">We Do Tax, LLC</h3>
           <ul className="space-y-3 text-lg">
             <li className="flex items-start  gap-3">
               <FaMapPin className="text-[#ffc107] mt-1" size={18} />

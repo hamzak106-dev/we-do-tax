@@ -1,13 +1,17 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 
 const faqs = [
   {
+    id: 1,
     question: "What Is The Process For An Individual Tax Return?",
     answer: (
       <>
         <span>
           You can request a quote (button above) or just reach out directly to
-          info@upsidetax.com or call (917) 923-4178. After we have an initial
+          info@wedotax.com or call (917) 923-4178. After we have an initial
           discussion:
         </span>
         <ul className="list-disc pl-5 mt-2 text-base">
@@ -32,7 +36,8 @@ const faqs = [
     ),
   },
   {
-    question: "How Does Upside Tax Ensure The Accuracy Of My Taxes?",
+    id: 2,
+    question: "How Does We Do Tax Ensure The Accuracy Of My Taxes?",
     answer: (
       <span>
         Our team of experienced professionals, led by Andrew Donoghue CPA, CFP®,
@@ -44,7 +49,8 @@ const faqs = [
     ),
   },
   {
-    question: "Can Upside Tax Help Me With My Business?",
+    id: 3,
+    question: "Can We Do Tax Help Me With My Business?",
     answer: (
       <span>
         Yes! We offer a range of services for businesses, including entity
@@ -55,22 +61,76 @@ const faqs = [
   },
 ];
 
-const Faqs = () => (
-  <section className="bg-[#fafafa] py-12">
-    <div className="max-w-3xl mx-auto px-4">
-      <h2 className="text-3xl font-bold text-black text-center mb-10">
-        FREQUENTLY ASKED QUESTIONS
-      </h2>
-      {faqs.map((faq) => (
-        <div key={faq.question} className="mb-10">
-          <h3 className="text-2xl text-black font-bold mb-2 border-b-2 border-[#60C130] inline-block pb-1">
-            {faq.question}
-          </h3>
-          <div className="mt-2 text-lg text-black">{faq.answer}</div>
+const Faqs = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (id: number) => {
+    setOpenFaq(openFaq === id ? null : id);
+  };
+
+  return (
+    <section className="bg-white py-20 px-6 md:px-20 max-w-[1440px] m-auto">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-left mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+          <p className="text-gray-700 text-[17px] max-w-2xl">
+            Get answers to common questions about our tax services and process
+          </p>
         </div>
-      ))}
-    </div>
-  </section>
-);
+        
+        <div className="space-y-4">
+          {faqs.map((faq) => (
+            <div
+              key={faq.id}
+              className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+            >
+              <button
+                onClick={() => toggleFaq(faq.id)}
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ffc107] focus:ring-opacity-50 rounded-xl hover:bg-gray-50 transition-colors duration-200"
+              >
+                <h3 className="text-xl font-semibold text-black pr-4">
+                  {faq.question}
+                </h3>
+                <div className="flex-shrink-0">
+                  {openFaq === faq.id ? (
+                    <ChevronUpIcon className="w-6 h-6 text-[#1a4d91] transform transition-transform duration-200" />
+                  ) : (
+                    <ChevronDownIcon className="w-6 h-6 text-[#1a4d91] transform transition-transform duration-200" />
+                  )}
+                </div>
+              </button>
+              
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openFaq === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-5">
+                  <div className="w-full h-px bg-gradient-to-r from-[#1a4d91] via-[#ffc107] to-transparent mb-4"></div>
+                  <div className="text-gray-700 text-[15px] leading-relaxed">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <p className="text-gray-700 text-[17px] mb-6">
+            Still have questions? We&apos;re here to help!
+          </p>
+          <a href="/Contact-us">
+            <button className="bg-[#ffc107] hover:bg-yellow-400 text-black font-bold px-8 py-3 rounded-md text-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+              Contact Us Today
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Faqs;

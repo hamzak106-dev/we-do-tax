@@ -8,7 +8,7 @@ const PersonalFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-6">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-2">Upside Tax, LLC</h3>
+            <h3 className="text-xl font-bold mb-2">We Do Tax, LLC</h3>
             <ul className="space-y-3 text-lg">
               <li className="flex items-center gap-3">
                 <span className="text-[#60C130] text-lg">
@@ -30,7 +30,7 @@ const PersonalFooter = () => {
                 <span className="text-[#60C130] text-lg">
                   <FaEnvelope />
                 </span>
-                <span className="text-lg">INFO@UPSIDETAX.COM</span>
+                <span className="text-lg">INFO@WEDOTAX.COM</span>
               </li>
             </ul>
           </div>
@@ -87,7 +87,7 @@ const PersonalFooter = () => {
         </div>
       </div>
       <div className="bg-[#232825] text-center text-white text-lg py-2 border-t border-gray-700">
-        &copy; Upside Tax, LLC
+        &copy; We Do Tax, LLC
       </div>
     </footer>
   );

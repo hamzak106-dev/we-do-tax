@@ -32,9 +32,11 @@ const AccelerateGrowth = ({
           <p className="text-lg md:text-xl text-black mb-6 max-w-xl">
             {description}
           </p>
-          <button className="bg-[#60C130] hover:bg-[#4ea326] text-white font-bold py-2 px-6 rounded text-lg shadow transition-all duration-200">
-            CONTACT US
-          </button>
+          <a href="/Contact-us">
+            <button className="bg-[#60C130] hover:bg-[#4ea326] text-white font-bold py-2 px-6 rounded text-lg shadow transition-all duration-200">
+              CONTACT US
+            </button>
+          </a>
         </div>
       </div>
     </section>

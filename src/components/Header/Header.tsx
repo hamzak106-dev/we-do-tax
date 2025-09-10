@@ -214,9 +214,11 @@ export default function Header() {
           CONTACT
         </Link> */}
           <div className="hidden md:flex flex-col items-center">
-            <button className="!bg-[#ffc107] p-[10px] rounded-[10px] text-lg border-none h-[40px] cursor-pointer !flex !items-center !justify-center hover:!bg-yellow-400  text-black !font-bold">
-              Start Filling Now
-            </button>
+            <Link href="/Contact-us">
+              <button className="!bg-[#ffc107] p-[10px] rounded-[10px] text-lg border-none h-[40px] cursor-pointer !flex !items-center !justify-center hover:!bg-yellow-400  text-black !font-bold">
+                Start Filling Now
+              </button>
+            </Link>
             {/* <span className="text-xs text-gray-600 mt-1">*</span>
         <span className="text-[15px] -mt-1 text-gray-600">Fast Response</span> */}
           </div>
@@ -324,13 +326,15 @@ export default function Header() {
           <MobileMenu />
           {/* Mobile Quote Button */}
           <div className="mt-8">
-            <Button
-              type="primary"
-              className="!bg-[#ffc107] !text-black  text-sm font-semibold w-full"
-              size="large"
-            >
-              REQUEST A QUOTE
-            </Button>
+            <Link href="/Contact-us">
+              <Button
+                type="primary"
+                className="!bg-[#ffc107] !text-black  text-sm font-semibold w-full"
+                size="large"
+              >
+                REQUEST A QUOTE
+              </Button>
+            </Link>
             {/* <div className="text-center mt-2">
             <span className="text-xs text-gray-600">*</span>
             <span className="text-[15px] text-gray-600 ml-1">

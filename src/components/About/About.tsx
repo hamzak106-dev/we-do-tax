@@ -46,22 +46,27 @@
 //   );
 // }
 
-
 import { FaFileAlt, FaClipboardCheck, FaMoneyCheckAlt } from "react-icons/fa";
 
 export default function AboutProcessSection() {
   return (
-    <section id="about" className="bg-white md:py-20 py-10 px-10 md:px-20 max-w-[1440px] m-auto">
+    <section
+      id="about"
+      className="bg-white md:py-20 py-10 px-10 md:px-20 max-w-[1440px] m-auto"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* LEFT: About RTD Tax */}
         <div>
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-            About WDT
+            About We Do Tax
           </h2>
           <p className="text-gray-700 leading-relaxed text-[17px] max-w-xl">
-            Providing efficient and accurate tax solutions. We offer assistance
-            in case of problems and ensure accurate tax filing services through
-            AI-based tools and expert support.
+            At WE Do TAXES, we make tax and financial management simple,
+            transparent, and stress-free. Our team combines years of experience
+            with modern technology to deliver reliable services for individuals,
+            freelancers, and businesses nationwide. We operate electronically to
+            serve clients nationwide. From personal tax returns to complex
+            business filings, we provide expert guidance every step of the way.
           </p>
         </div>
 
@@ -71,37 +76,42 @@ export default function AboutProcessSection() {
             Process for Tax Filing
           </h2>
           <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 md:gap-0 text-center">
-  {/* Step 1 */}
-  <div className="flex flex-col items-center">
-    <div className="bg-[#1a4d91] text-white rounded-full p-4 text-3xl mb-3">
-      <FaFileAlt />
-    </div>
-    <p className="text-sm font-semibold text-black">Document Upload</p>
-  </div>
+            {/* Step 1 */}
+            <div className="flex flex-col items-center">
+              <div className="bg-[#1a4d91] text-white rounded-full p-4 text-3xl mb-3">
+                <FaFileAlt />
+              </div>
+              <p className="text-sm font-semibold text-black">
+                Document Upload
+              </p>
+            </div>
 
-  {/* Arrow */}
-  <div className="hidden md:block text-3xl text-gray-400 mx-4">→</div>
+            {/* Arrow */}
+            <div className="hidden md:block text-3xl text-gray-400 mx-4">→</div>
 
-  {/* Step 2 */}
-  <div className="flex flex-col items-center">
-    <div className="bg-[#ffc107] text-white rounded-full p-4 text-3xl mb-3">
-      <FaClipboardCheck />
-    </div>
-    <p className="text-sm font-semibold text-black">Review & Preparation</p>
-  </div>
+            {/* Step 2 */}
+            <div className="flex flex-col items-center">
+              <div className="bg-[#ffc107] text-white rounded-full p-4 text-3xl mb-3">
+                <FaClipboardCheck />
+              </div>
+              <p className="text-sm font-semibold text-black">
+                Review & Preparation
+              </p>
+            </div>
 
-  {/* Arrow */}
-  <div className="hidden md:block text-3xl text-gray-400 mx-4">→</div>
+            {/* Arrow */}
+            <div className="hidden md:block text-3xl text-gray-400 mx-4">→</div>
 
-  {/* Step 3 */}
-  <div className="flex flex-col items-center">
-    <div className="bg-[#1a4d91] text-white rounded-full p-4 text-3xl mb-3">
-      <FaMoneyCheckAlt />
-    </div>
-    <p className="text-sm font-semibold text-black">Filing & Refund</p>
-  </div>
-</div>
-
+            {/* Step 3 */}
+            <div className="flex flex-col items-center">
+              <div className="bg-[#1a4d91] text-white rounded-full p-4 text-3xl mb-3">
+                <FaMoneyCheckAlt />
+              </div>
+              <p className="text-sm font-semibold text-black">
+                Filing & Refund
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -25,7 +25,7 @@ export default function Plans({
         Consulting Services
       </p>
       <a
-        href="#quote-form"
+        href="/Contact-us"
         className="inline-block mt-4 mb-12 px-6 py-3 text-white font-bold bg-lime-500 hover:bg-lime-600 rounded-md text-base"
       >
         Start Your Quote
