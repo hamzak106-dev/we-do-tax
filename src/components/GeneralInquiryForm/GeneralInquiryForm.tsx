@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const GeneralInquiryForm = () => {
   const [formData, setFormData] = useState({
@@ -32,28 +33,36 @@ const GeneralInquiryForm = () => {
     setSubmitStatus("idle");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      // EmailJS configuration
+      const serviceId = 'service_6dqeuz2';
+      const templateId = 'template_l3wi7eq';
+      const publicKey = 'nUIEheYWHjb9lkd-T';
 
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        setSubmitStatus("error");
-      }
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || 'Not provided',
+          service: formData.service,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      console.log('Email sent successfully:', result);
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error sending email:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

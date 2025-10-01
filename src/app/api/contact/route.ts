@@ -34,11 +34,10 @@ export async function POST(request: NextRequest) {
           pass: process.env.EMAIL_PASS,
         },
       };
-    } else {
-      // Generic SMTP configuration for custom domains
-      // This should work for most email providers including custom domains
+    } else if (emailDomain === 'outlook.com' || emailDomain === 'hotmail.com' || emailDomain === 'live.com') {
+      // Outlook/Hotmail/Live configuration
       transporterConfig = {
-        host: "smtp.gmail.com", // Try Gmail SMTP first
+        host: "smtp-mail.outlook.com",
         port: 587,
         secure: false,
         auth: {
@@ -46,6 +45,23 @@ export async function POST(request: NextRequest) {
           pass: process.env.EMAIL_PASS,
         },
         tls: {
+          ciphers: 'SSLv3',
+          rejectUnauthorized: false
+        }
+      };
+    } else {
+      // Custom domain configuration (including wedotaxes.co)
+      // Try Outlook/Office 365 SMTP first (most common for custom domains)
+      transporterConfig = {
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+        tls: {
+          ciphers: 'SSLv3',
           rejectUnauthorized: false
         }
       };
@@ -98,12 +114,13 @@ export async function POST(request: NextRequest) {
           suggestions: [
             "1. Verify that your email and app password are correct",
             "2. If using Gmail, make sure you're using an App Password (not your regular password)",
-            "3. If using a custom domain, contact your email provider for SMTP settings",
-            "4. Make sure 2-factor authentication is enabled for Gmail accounts"
+            "3. If using Outlook/Office 365, make sure you're using an App Password",
+            "4. If using a custom domain, verify your email provider's SMTP settings",
+            "5. Make sure 2-factor authentication is enabled for your email account"
           ],
           debugInfo: {
             emailDomain,
-            configType: emailDomain === 'gmail.com' ? 'Gmail Service' : 'Custom SMTP',
+            configType: emailDomain === 'gmail.com' ? 'Gmail Service' : (emailDomain === 'outlook.com' || emailDomain === 'hotmail.com' ? 'Outlook Service' : 'Custom SMTP'),
             user: process.env.EMAIL_USER,
           }
         },
@@ -133,10 +150,10 @@ async function sendEmailWithTransporter(
 ) {
   const { name, email, phone, service, message } = formData;
 
-    // Email content
+    // Email content - Send to info@wedotaxes.co
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "faizan.ali@bitandbytes.net",
+      to: "info@wedotaxes.co",
       subject: `WE DO TAX - GENERAL INQUIRY - ${service}`,
       html: `
         <!DOCTYPE html>
@@ -229,7 +246,7 @@ async function sendEmailWithTransporter(
                       <div style="color: #ffffff; margin-bottom: 15px;">
                         <strong style="font-size: 16px;">WE DO TAX, LLC</strong><br>
                         <span style="font-size: 14px; opacity: 0.8;">2 Gold Street, New York, NY 10038</span><br>
-                        <span style="font-size: 14px; opacity: 0.8;">info@wedotax.com</span>
+                        <span style="font-size: 14px; opacity: 0.8;">info@wedotaxes.co</span>
                       </div>
                       <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 15px;">
                         <p style="color: #ffc107; margin: 0; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
