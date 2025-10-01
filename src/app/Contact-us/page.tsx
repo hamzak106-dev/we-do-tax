@@ -59,7 +59,7 @@ const ContactUs = () => {
         <div className="relative z-10">
           <div className="flex flex-col items-center justify-center h-64">
             <h2 className="text-[#ffc107] text-lg font-extrabold mb-2 mt-8 uppercase tracking-wide text-center">
-              CONTACT We Do Tax
+              CONTACT WeDoTaxes
             </h2>
             <h1 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4">
               GET EXPERT HELP WITH YOUR TAXES

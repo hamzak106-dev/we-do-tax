@@ -14,7 +14,7 @@ const testimonialsData = [
     role: "Small Business Owner",
     image: "https://randomuser.me/api/portraits/women/1.jpg",
     rating: 5,
-    text: "We Do Tax has been a game-changer for my business. Their expertise in tax planning saved me thousands last year. The team is professional, responsive, and truly cares about their clients.",
+    text: "WeDoTaxes has been a game-changer for my business. Their expertise in tax planning saved me thousands last year. The team is professional, responsive, and truly cares about their clients.",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const testimonialsData = [
     role: "Tech Entrepreneur",
     image: "https://randomuser.me/api/portraits/men/2.jpg",
     rating: 5,
-    text: "I&apos;ve worked with many tax professionals, but We Do Tax stands out. Their innovative approach to tax strategy and attention to detail is unmatched. Highly recommended!",
+    text: "I&apos;ve worked with many tax professionals, but WeDoTaxes stands out. Their innovative approach to tax strategy and attention to detail is unmatched. Highly recommended!",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const testimonialsData = [
     role: "Freelance Designer",
     image: "https://randomuser.me/api/portraits/women/3.jpg",
     rating: 5,
-    text: "As a freelancer, tax season used to be stressful. We Do Tax made it simple and straightforward. Their team guided me through every step with patience and expertise.",
+    text: "As a freelancer, tax season used to be stressful. WeDoTaxes made it simple and straightforward. Their team guided me through every step with patience and expertise.",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const testimonialsData = [
     role: "Real Estate Investor",
     image: "https://randomuser.me/api/portraits/men/4.jpg",
     rating: 5,
-    text: "The tax strategies provided by We Do Tax have been invaluable for my real estate investments. Their knowledge of tax laws and dedication to client success is impressive.",
+    text: "The tax strategies provided by WeDoTaxes have been invaluable for my real estate investments. Their knowledge of tax laws and dedication to client success is impressive.",
   },
 ];
 
@@ -89,7 +89,7 @@ const Testimonials = () => {
           </h2>
           <p className="text-gray-600 max-w-2xl text-lg mx-auto">
             Don&apos;t just take our word for it - hear from some of our
-            satisfied clients about their experience with We Do Tax.
+            satisfied clients about their experience with WeDoTaxes.
           </p>
         </motion.div>
 

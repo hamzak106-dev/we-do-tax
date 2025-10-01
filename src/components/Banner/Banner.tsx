@@ -34,7 +34,7 @@ export default function Banner() {
               </div>
               <div className="flex items-center">
                 <div className="text-[#ffc107] mr-3 text-xl">✓</div>
-                <span className="text-[16px]">Expert review by CPA + CFP® credentials</span>
+                <span className="text-[16px]">Expert review by CPA</span>
               </div>
               <div className="flex items-center">
                 <div className="text-[#ffc107] mr-3 text-xl">✓</div>

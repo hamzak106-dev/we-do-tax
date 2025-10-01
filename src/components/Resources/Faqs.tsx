@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     id: 2,
-    question: "How Does We Do Tax Ensure The Accuracy Of My Taxes?",
+    question: "How Does WeDoTaxes Ensure The Accuracy Of My Taxes?",
     answer: (
       <span>
         Our team of experienced professionals, led by Andrew Donoghue CPA, CFP®,
@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     id: 3,
-    question: "Can We Do Tax Help Me With My Business?",
+    question: "Can WeDoTaxes Help Me With My Business?",
     answer: (
       <span>
         Yes! We offer a range of services for businesses, including entity

@@ -8,14 +8,14 @@ const PersonalFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-6">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-2">We Do Tax, LLC</h3>
+            <h3 className="text-xl font-bold mb-2">WeDoTaxes, LLC</h3>
             <ul className="space-y-3 text-lg">
               <li className="flex items-center gap-3">
                 <span className="text-[#60C130] text-lg">
                   <FaMapMarkerAlt />
                 </span>
                 <span className="text-lg">
-                  2 GOLD STREET, NEW YORK, NY 10038
+                  Silver Spring, Maryland, MD 20901
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -87,7 +87,7 @@ const PersonalFooter = () => {
         </div>
       </div>
       <div className="bg-[#232825] text-center text-white text-lg py-2 border-t border-gray-700">
-        &copy; We Do Tax, LLC
+        &copy; WeDoTaxes, LLC
       </div>
     </footer>
   );

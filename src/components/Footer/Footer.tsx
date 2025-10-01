@@ -31,11 +31,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-gray-700">
         {/* Contact Column */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">We Do Tax, LLC</h3>
+          <h3 className="text-lg font-semibold mb-4">WeDoTaxes, LLC</h3>
           <ul className="space-y-3 text-lg">
             <li className="flex items-start  gap-3">
               <FaMapPin className="text-[#ffc107] mt-1" size={18} />
-              <span>2 Gold Street, New York, NY 10038</span>
+              <span>Silver Spring, Maryland, MD 20901</span>
             </li>
             <li className="flex items-start gap-3">
               <FaPhone className="text-[#ffc107] mt-1" size={18} />
@@ -43,7 +43,9 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-3">
               <FaEnvelope className="text-[#ffc107] mt-1" size={18} />
-              <span>info@wedotax.com</span>
+              <span>
+                <a href="mailto:info@wedotaxes.com">info@wedotaxes.com</a>
+              </span>
             </li>
           </ul>
         </div>

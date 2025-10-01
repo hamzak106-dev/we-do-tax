@@ -58,10 +58,10 @@ export default function AboutProcessSection() {
         {/* LEFT: About RTD Tax */}
         <div>
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-            About We Do Tax
+            About WeDoTaxes
           </h2>
           <p className="text-gray-700 leading-relaxed text-[17px] max-w-xl">
-            At WE Do TAXES, we make tax and financial management simple,
+            At WeDoTaxes, we make tax and financial management simple,
             transparent, and stress-free. Our team combines years of experience
             with modern technology to deliver reliable services for individuals,
             freelancers, and businesses nationwide. We operate electronically to
