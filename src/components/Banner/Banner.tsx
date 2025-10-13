@@ -13,17 +13,13 @@ export default function Banner() {
           {/* Left - Text Section */}
           <div className="text-white flex-1 px-8 py-16 flex flex-col justify-center">
             <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-0">
-              Maximize Your Refund.
+              WeDoTaxes — Your U.S. Tax Experts
             </h1>
             <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
-              Minimize Your Stress.
+              Maximize your Refund. Minimize your Stress.
             </h1>
-            <p className="mb-0 text-[19px]">
-              Fast, accurate tax preparation and advisory from an expert team.
-            </p>
             <p className="mb-4 text-[19px]">
-              Personal, freelance, and business fillings plus monthly fractional
-              CFO support.
+              Serving U.S. individuals, businesses, and expats with clear, compliant, and customized tax solutions.
             </p>
 
             {/* Feature List */}
@@ -42,11 +38,22 @@ export default function Banner() {
               </div>
             </div>
 
-            <a href="/Contact-us">
-              <button className="bg-[#1F5893] p-[10px] px-4 w-fit rounded-[10px] text-lg border-none h-[40px] cursor-pointer flex items-center justify-center text-white font-bold">
-                Start Filing Now
-              </button>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <a href="/Contact-us">
+                <button className="bg-[#1F5893] p-[10px] px-4 w-fit rounded-[10px] text-lg border-none h-[40px] cursor-pointer flex items-center justify-center text-white font-bold">
+                  Get a Free Consultation
+                </button>
+              </a>
+              <div className="text-center sm:text-left">
+                <p className="text-white text-sm mb-1">Or call us at:</p>
+                <a 
+                  href="tel:+18884547996" 
+                  className="text-[#ffc107] font-bold text-lg hover:text-yellow-400 transition-colors"
+                >
+                  (888) 454-7996
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Right - Video Section */}

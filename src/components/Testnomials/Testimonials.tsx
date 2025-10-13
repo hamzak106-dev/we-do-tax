@@ -6,39 +6,23 @@ import { motion } from "framer-motion";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 import "@/styles/slick-custom.css";
 
-// Mock data for testimonials
+// Client testimonials data
 const testimonialsData = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Small Business Owner",
+    name: "Jane D.",
+    role: "Expat Client",
     image: "https://randomuser.me/api/portraits/women/1.jpg",
     rating: 5,
-    text: "WeDoTaxes has been a game-changer for my business. Their expertise in tax planning saved me thousands last year. The team is professional, responsive, and truly cares about their clients.",
+    text: "WeDoTaxes handled our expat taxes seamlessly — saved us time and gave peace of mind.",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Tech Entrepreneur",
+    name: "Mark & Laura S.",
+    role: "Business Owners",
     image: "https://randomuser.me/api/portraits/men/2.jpg",
     rating: 5,
-    text: "I&apos;ve worked with many tax professionals, but WeDoTaxes stands out. Their innovative approach to tax strategy and attention to detail is unmatched. Highly recommended!",
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    role: "Freelance Designer",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
-    rating: 5,
-    text: "As a freelancer, tax season used to be stressful. WeDoTaxes made it simple and straightforward. Their team guided me through every step with patience and expertise.",
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    role: "Real Estate Investor",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
-    rating: 5,
-    text: "The tax strategies provided by WeDoTaxes have been invaluable for my real estate investments. Their knowledge of tax laws and dedication to client success is impressive.",
+    text: "Professional, clear, and responsive. They helped us through an IRS audit with confidence.",
   },
 ];
 
@@ -85,7 +69,7 @@ const Testimonials = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            What Our Clients Say
+            Client Testimonials
           </h2>
           <p className="text-gray-600 max-w-2xl text-lg mx-auto">
             Don&apos;t just take our word for it - hear from some of our

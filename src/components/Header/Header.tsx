@@ -14,23 +14,23 @@ export default function Header() {
   const servicesItems: MenuProps["items"] = [
     {
       key: "1",
-      label: <Link href="/Personal">Personal</Link>,
+      label: <Link href="/Individual-Expat-Tax">U.S. Individual & Expat Tax Filing</Link>,
     },
     {
       key: "2",
-      label: <Link href="/Freelancer">Freelancer</Link>,
+      label: <Link href="/Business-Entity-Tax">Business & Entity Taxes</Link>,
     },
     {
       key: "3",
-      label: <Link href="/Business">Business</Link>,
+      label: <Link href="/IRS-Audit-Resolution">IRS Audit & Tax Resolution</Link>,
     },
     {
       key: "4",
-      label: <Link href="/Fractional-cfo">Fractional CFO</Link>,
+      label: <Link href="/Contact-us">State & Local Tax (SALT)</Link>,
     },
     {
       key: "5",
-      label: <Link href="/Family-offices">Family Offices</Link>,
+      label: <Link href="/Contact-us">Ongoing Tax Planning</Link>,
     },
   ];
 
@@ -174,12 +174,33 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 text-[18px] font-semibold text-white">
-          {navLinks.map(({ label, href }) => (
-            <Link key={label} href={href} className="relative group px-2 py-1">
-              {label}
-              <span className="absolute bottom-0 left-2 w-0 h-[2px] bg-[#ffc107] transition-all duration-300 group-hover:w-1/2" />
-            </Link>
-          ))}
+          {navLinks.map(({ label, href }) => {
+            if (label === "Services") {
+              return (
+                <Dropdown
+                  key={label}
+                  menu={{
+                    items: servicesItems,
+                    className: "!text-[16px] !font-semibold",
+                  }}
+                  placement="bottom"
+                  className="!text-[18px] !font-semibold"
+                >
+                  <div className="relative group px-2 py-1 cursor-pointer flex items-center">
+                    {label}
+                    <DownOutlined className="!text-[16px] !font-semibold ml-1" />
+                    <span className="absolute bottom-0 left-2 w-0 h-[2px] bg-[#ffc107] transition-all duration-300 group-hover:w-1/2" />
+                  </div>
+                </Dropdown>
+              );
+            }
+            return (
+              <Link key={label} href={href} className="relative group px-2 py-1">
+                {label}
+                <span className="absolute bottom-0 left-2 w-0 h-[2px] bg-[#ffc107] transition-all duration-300 group-hover:w-1/2" />
+              </Link>
+            );
+          })}
           {/* <Dropdown
           menu={{
             items: servicesItems,

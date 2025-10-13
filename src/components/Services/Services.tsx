@@ -6,28 +6,28 @@ import { useState } from "react";
 
 const services = [
   {
-    title: "Core Tax & Compliance Services",
+    title: "U.S. Individual & Expat Tax Filing",
     description:
-      "We provide end-to-end tax filing solutions for individuals and businesses of all sizes. From Form 1040 for personal returns to LLC, S-Corp, C-Corp, and partnership filings, our team ensures compliance while maximizing deductions. We also specialize in multi-state and international tax cases, helping clients with cross-border income and assets stay fully compliant.",
+      "Filing U.S. taxes can be complicated — especially for citizens living overseas or with foreign income. We handle federal, state, and foreign income complexities, FBAR, FATCA, and treaty analysis.",
     staticIcon: "/assets/images/static/complince.png",
     animatedIcon: "/assets/videos/complince.gif",
-    link: "#",
+    link: "/Individual-Expat-Tax",
   },
   {
-    title: "Tax Planning & Strategy",
+    title: "Business & Entity Taxes",
     description:
-      "Our proactive approach to tax planning helps you reduce liabilities year-round instead of waiting until filing season. Whether it’s retirement planning, investment strategies, R&D credits, or even crypto tax reporting, we design strategies to keep more money in your pocket while staying fully compliant.",
+      "From startups to established companies, we help U.S. businesses structure properly, minimize liabilities, and plan proactively.",
     staticIcon: "/assets/images/static/tax.png",
     animatedIcon: "/assets/videos/tax.gif",
-    link: "#",
+    link: "/Business-Entity-Tax",
   },
   {
-    title: "Audit & IRS Support",
+    title: "IRS Audit & Tax Resolution",
     description:
-      "Facing the IRS can be stressful, but you don’t have to go through it alone. We represent clients during audits with expert defense and also offer prepaid audit protection plans that give you peace of mind long before an audit ever occurs.",
+      "We act as your advocate during IRS audits, notices, or penalties, handling representation, appeals, and settlement negotiations.",
     staticIcon: "/assets/images/static/audit.png",
     animatedIcon: "/assets/videos/audit.gif",
-    link: "#",
+    link: "/IRS-Audit-Resolution",
   },
   {
     title: "Accounting & Advisory Services",

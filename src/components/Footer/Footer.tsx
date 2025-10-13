@@ -39,7 +39,11 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-3">
               <FaPhone className="text-[#ffc107] mt-1" size={18} />
-              <span>Submit online form to contact us</span>
+              <span>
+                <a href="tel:+18884547996" className="hover:text-[#ffc107] transition-colors">
+                  (888) 454-7996
+                </a>
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <FaEnvelope className="text-[#ffc107] mt-1" size={18} />

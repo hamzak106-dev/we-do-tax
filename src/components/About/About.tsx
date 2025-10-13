@@ -61,13 +61,13 @@ export default function AboutProcessSection() {
             About WeDoTaxes
           </h2>
           <p className="text-gray-700 leading-relaxed text-[17px] max-w-xl">
-            At WeDoTaxes, we make tax and financial management simple,
-            transparent, and stress-free. Our team combines years of experience
-            with modern technology to deliver reliable services for individuals,
-            freelancers, and businesses nationwide. We operate electronically to
-            serve clients nationwide. From personal tax returns to complex
-            business filings, we provide expert guidance every step of the way.
+            WeDoTaxes is a trusted U.S.-based tax firm offering transparent, reliable, and expert
+            services nationwide. Our CPAs and EAs specialize in both domestic and international
+            taxation.
           </p>
+          <br />
+          <p className="text-gray-700 leading-relaxed text-[17px] max-w-xl">Mission: To deliver trustworthy, transparent, and expert tax services that empower clients
+            to keep more of what they earn.</p>
         </div>
 
         {/* RIGHT: Process for Tax Filing */}

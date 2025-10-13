@@ -72,12 +72,23 @@ const GeneralInquiryForm = () => {
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow p-8">
       <h2 className="text-3xl font-extrabold text-center text-black mb-2">
-        GENERAL INQURY
+        GENERAL INQUIRY
       </h2>
-      <p className="text-center text-black mb-8">
+      <p className="text-center text-black mb-4">
         Please complete this form, and a member of our team will follow up as
         soon as possible.
       </p>
+      <div className="text-center mb-8">
+        <p className="text-lg font-semibold text-[#0B3D91] mb-2">
+          Or call us directly at:
+        </p>
+        <a 
+          href="tel:+18884547996" 
+          className="text-2xl font-bold text-[#ffc107] hover:text-yellow-400 transition-colors"
+        >
+          (888) 454-7996
+        </a>
+      </div>
       <form className="space-y-6" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="flex flex-col">

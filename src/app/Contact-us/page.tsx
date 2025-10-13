@@ -64,12 +64,23 @@ const ContactUs = () => {
             <h1 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4">
               GET EXPERT HELP WITH YOUR TAXES
             </h1>
-            <p className="text-white text-lg text-center max-w-2xl mx-auto font-normal">
+            <p className="text-white text-lg text-center max-w-2xl mx-auto font-normal mb-4">
               Choose from our comprehensive range of{" "}
               <span className="font-bold">professional tax services</span> below.
               <br />
               Otherwise continue down to our general contact form.
             </p>
+            <div className="text-center">
+              <p className="text-white text-lg font-semibold mb-2">
+                Or call us directly at:
+              </p>
+              <a 
+                href="tel:+18884547996" 
+                className="text-2xl font-bold text-[#ffc107] hover:text-yellow-400 transition-colors"
+              >
+                (888) 454-7996
+              </a>
+            </div>
           </div>
           {/* Cards grid - Updated to show all 6 services in a 3x2 grid */}
           <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
