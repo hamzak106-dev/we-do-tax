@@ -16,7 +16,7 @@ const BusinessEntityTax = () => {
   const faqs = [
     {
       id: 1,
-      question: "What's the best entity type for my business — LLC, S-Corp, or C-Corp?",
+      question: "What&apos;s the best entity type for my business — LLC, S-Corp, or C-Corp?",
       answer: (
         <span>
           It depends on your goals. We analyze your revenue, expenses, and growth plans to
@@ -46,7 +46,7 @@ const BusinessEntityTax = () => {
     },
     {
       id: 4,
-      question: "How can I reduce my business's tax liability?",
+      question: "How can I reduce my business&apos;s tax liability?",
       answer: (
         <span>
           We identify allowable deductions, optimize depreciation schedules, plan estimated taxes,
