@@ -96,7 +96,7 @@ export default function Footer() {
             <li>West Palm Beach</li>
             <li>
               <Link
-                href="https://www.google.com/search?q=Upside+Tax+LLC"
+                href="https://www.google.com/search?q=WeDoTaxes"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#ffc107] block"
