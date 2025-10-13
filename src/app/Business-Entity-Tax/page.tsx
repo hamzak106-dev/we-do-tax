@@ -60,7 +60,7 @@ const BusinessEntityTax = () => {
       answer: (
         <span>
           Provide your prior-year tax returns, business financial statements, EIN details, and any
-          bookkeeping or payroll records. We'll take it from there.
+          bookkeeping or payroll records. We&apos;ll take it from there.
         </span>
       ),
     },
@@ -132,7 +132,7 @@ const BusinessEntityTax = () => {
       <section className="py-20 px-6 md:px-20 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-12 text-center">
-            Why You'll Benefit
+            Why You&apos;ll Benefit
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">

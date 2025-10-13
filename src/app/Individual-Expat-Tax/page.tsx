@@ -136,7 +136,7 @@ const IndividualExpatTax = () => {
       <section className="py-20 px-6 md:px-20 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-12 text-center">
-            Why You'll Benefit
+            Why You&apos;ll Benefit
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
@@ -146,7 +146,7 @@ const IndividualExpatTax = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-2 h-2 bg-[#0B3D91] rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-700 text-lg">Transparent pricing and clear deadlines so you're never surprised</p>
+                <p className="text-gray-700 text-lg">Transparent pricing and clear deadlines so you&apos;re never surprised</p>
               </div>
             </div>
             <div className="space-y-6">
