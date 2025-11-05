@@ -97,6 +97,13 @@ export default function Header() {
         ABOUT US
       </Link>
       <Link
+        href="/Blogs"
+        className="text-[19px] font-bold !text-white"
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        BLOGS
+      </Link>
+      <Link
         href="/Contact-us"
         className="text-[19px] font-bold !text-white"
         onClick={() => setMobileMenuOpen(false)}
@@ -372,6 +379,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/#about" }, // ✅ now links to homepage anchor
   { label: "Services", href: "/#services" },
+  { label: "Blogs", href: "/Blogs" },
   { label: "FAQs", href: "/#faqs" },
   { label: "Contact", href: "/Contact-us" },
 ];
