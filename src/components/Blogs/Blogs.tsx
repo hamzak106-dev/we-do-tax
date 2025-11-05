@@ -1,143 +1,236 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import contentfulClient from "@/lib/contentful";
 
-const blogs = [
-  {
-    id: 1,
-    title: "Understanding Tax Deductions for Small Business Owners",
-    excerpt: "Learn about the most important tax deductions available to small business owners and how to maximize your savings.",
-    img: "https://images.pexels.com/photos/210990/pexels-photo-210990.jpeg?auto=compress&w=600&q=80",
-    date: "March 15, 2024",
-    category: "Business Tax",
-    link: "#",
-  },
-  {
-    id: 2,
-    title: "Tax Planning Strategies for 2024",
-    excerpt: "Discover effective tax planning strategies to reduce your tax liability and keep more of your hard-earned money.",
-    img: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&w=600&q=80",
-    date: "March 10, 2024",
-    category: "Tax Planning",
-    link: "#",
-  },
-  {
-    id: 3,
-    title: "IRS Audit: What to Expect and How to Prepare",
-    excerpt: "A comprehensive guide on what happens during an IRS audit and the steps you should take to prepare.",
-    img: "https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&w=600&q=80",
-    date: "March 5, 2024",
-    category: "IRS Audit",
-    link: "#",
-  },
-  {
-    id: 4,
-    title: "Expat Tax Filing: Essential Guide for Americans Abroad",
-    excerpt: "Everything you need to know about filing taxes as an American living or working overseas.",
-    img: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&w=600&q=80",
-    date: "February 28, 2024",
-    category: "Expat Tax",
-    link: "#",
-  },
-  {
-    id: 5,
-    title: "Quarterly Tax Payments: A Guide for Freelancers",
-    excerpt: "Learn how to calculate and pay quarterly estimated taxes to avoid penalties and stay compliant.",
-    img: "https://images.pexels.com/photos/267614/pexels-photo-267614.jpeg?auto=compress&w=600&q=80",
-    date: "February 20, 2024",
-    category: "Freelancer Tax",
-    link: "#",
-  },
-  {
-    id: 6,
-    title: "Home Office Deduction: Maximizing Your Tax Benefits",
-    excerpt: "Understand the rules and requirements for claiming a home office deduction on your tax return.",
-    img: "https://images.pexels.com/photos/210990/pexels-photo-210990.jpeg?auto=compress&w=600&q=80",
-    date: "February 15, 2024",
-    category: "Deductions",
-    link: "#",
-  },
-  {
-    id: 7,
-    title: "State Tax Obligations: What You Need to Know",
-    excerpt: "Navigate the complexities of state tax requirements and understand your obligations across different states.",
-    img: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&w=600&q=80",
-    date: "February 10, 2024",
-    category: "State Tax",
-    link: "#",
-  },
-  {
-    id: 8,
-    title: "Year-End Tax Planning Checklist",
-    excerpt: "A comprehensive checklist to help you optimize your tax situation before the end of the tax year.",
-    img: "https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&w=600&q=80",
-    date: "February 5, 2024",
-    category: "Tax Planning",
-    link: "#",
-  },
-  {
-    id: 9,
-    title: "Understanding Business Entity Tax Structures",
-    excerpt: "Compare LLC, S-Corp, C-Corp, and Partnership tax structures to choose the best option for your business.",
-    img: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&w=600&q=80",
-    date: "January 30, 2024",
-    category: "Business Tax",
-    link: "#",
-  },
-];
+interface Blog {
+  id: string;
+  title: string;
+  excerpt: string;
+  img: string;
+  category: string;
+  date: string;
+  slug: string;
+}
 
-const Blogs = () => (
-  <section className="bg-white py-16 md:py-20">
-    <div className="max-w-7xl mx-auto px-4 md:px-6">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
-        OUR BLOGS
-      </h2>
-      <p className="text-center text-gray-600 mb-12 text-lg">
-        Stay informed with the latest tax tips, strategies, and insights
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogs.map((blog) => (
-          <div
-            key={blog.id}
-            className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02] flex flex-col group"
-          >
-            <Link href={blog.link}>
-              <div className="w-full h-48 relative overflow-hidden">
-                <img
-                  src={blog.img}
-                  alt={blog.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-[#0B3D91] text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    {blog.category}
-                  </span>
-                </div>
-              </div>
-            </Link>
-            <div className="p-6 flex flex-col flex-grow">
-              <div className="text-sm text-gray-500 mb-2">{blog.date}</div>
-              <Link href={blog.link}>
-                <h3 className="text-xl font-bold text-black mb-3 group-hover:text-[#0B3D91] transition-colors">
-                  {blog.title}
-                </h3>
-              </Link>
-              <p className="text-gray-700 text-[15px] mb-4 flex-grow">
-                {blog.excerpt}
+const Blogs = () => {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  const fetchBlogs = async () => {
+    try {
+      // Try different content type names (blog, Blog, BlogPost, etc.)
+      let response;
+      let lastError: any = null;
+      
+      // List of possible content type names to try (including Contentful template names)
+      // Based on Contentful "page - Blog post" template
+      const contentTypesToTry = [
+        'pageBlogPost',        // Most likely for "page - Blog post"
+        'pageBlogPostTemplate',
+        'pageBlogPostTemplateV2',
+        'page - Blog post',    // With spaces and dashes (unlikely but possible)
+        'blog',
+        'Blog', 
+        'blogPost', 
+        'BlogPost',
+        'blogPostTemplate',
+        'post',
+        'Post',
+        'article',
+        'Article',
+      ];
+      
+      // Try each content type name
+      for (const contentType of contentTypesToTry) {
+        try {
+          response = await contentfulClient.getEntries({
+            content_type: contentType,
+            // Remove order parameter - we'll sort client-side
+          });
+          
+          // If we get a response, break out of the loop
+          if (response && response.items) {
+            console.log(`✅ Successfully found content type: "${contentType}"`);
+            console.log(`📊 Found ${response.total} total entries`);
+            break;
+          }
+        } catch (e: any) {
+          lastError = e;
+          console.log(`❌ Content type "${contentType}" not found, trying next...`);
+          continue;
+        }
+      }
+      
+      // If we still don't have a response, throw error
+      if (!response || !response.items) {
+        console.error('❌ All content type attempts failed. Last error:', lastError);
+        throw new Error(
+          `Content type not found. Tried: ${contentTypesToTry.join(', ')}. ` +
+          `Please check your Contentful content type API Identifier. ` +
+          `Go to Contentful → Content model → Your content type → Check the "API Identifier" field.`
+        );
+      }
+
+      // Map fields from Contentful template structure
+      // Template fields: title, subtitle, featuredImage, publishedDate, slug, content
+      const allBlogs = response.items.map((item: any) => {
+        const fields = item.fields;
+        
+        // Handle image - could be featuredImage or image
+        const imageField = fields.featuredImage || fields.image;
+        const imageUrl = imageField?.fields?.file?.url || imageField?.file?.url || '';
+        const fullImageUrl = imageUrl ? `https:${imageUrl}` : '';
+
+        // Handle title - could be localized, try en-US first, then fallback
+        const title = fields.title?.en || fields.title?.['en-US'] || fields.title || fields.internalName || '';
+        
+        // Handle excerpt/subtitle - template uses subtitle, but we'll try both
+        const excerpt = fields.subtitle?.en || fields.subtitle?.['en-US'] || fields.subtitle || fields.excerpt?.en || fields.excerpt || '';
+        
+        // Handle date - template uses publishedDate
+        const dateField = fields.publishedDate || fields.date;
+        const formattedDate = dateField ? new Date(dateField).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        }) : '';
+
+        // Handle slug
+        const slug = fields.slug?.en || fields.slug?.['en-US'] || fields.slug || title?.toLowerCase().replace(/\s+/g, '-') || '';
+
+        return {
+          id: item.sys.id,
+          title: title,
+          excerpt: excerpt,
+          img: fullImageUrl || 'https://images.pexels.com/photos/210990/pexels-photo-210990.jpeg?auto=compress&w=600&q=80',
+          category: fields.category?.en || fields.category || '', // Might not exist in template
+          date: formattedDate,
+          slug: slug,
+          published: true, // Assume published if we can fetch it
+        };
+      });
+
+      // Filter only published blogs (if published field exists)
+      const publishedBlogs = allBlogs.filter((blog: any) => blog.published !== false);
+      
+      // Sort by date (newest first)
+      const sortedBlogs = publishedBlogs.sort((a: any, b: any) => {
+        const dateA = a.date ? new Date(a.date).getTime() : 0;
+        const dateB = b.date ? new Date(b.date).getTime() : 0;
+        return dateB - dateA;
+      });
+      
+      setBlogs(sortedBlogs);
+    } catch (error: any) {
+      console.error("Failed to fetch blogs:", error);
+      // Show user-friendly error message
+      if (error.message) {
+        console.error(error.message);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <section className="bg-white py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
+            OUR BLOGS
+          </h2>
+          <p className="text-center text-gray-600 mb-12 text-lg">
+            Stay informed with the latest tax tips, strategies, and insights
+          </p>
+          <div className="text-center py-12">
+            <p className="text-gray-600">Loading blogs...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="bg-white py-16 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
+          OUR BLOGS
+        </h2>
+        <p className="text-center text-gray-600 mb-12 text-lg">
+          Stay informed with the latest tax tips, strategies, and insights
+        </p>
+        {blogs.length === 0 && !loading ? (
+          <div className="text-center py-12">
+            <p className="text-gray-600 text-lg mb-4">No blogs available yet.</p>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 max-w-2xl mx-auto mt-4">
+              <p className="text-sm text-gray-700 mb-2">
+                <strong>Setup Instructions:</strong>
               </p>
-              <Link
-                href={blog.link}
-                className="text-[#0B3D91] font-semibold text-sm mt-auto inline-flex items-center hover:text-[#ffc107] transition-colors"
-              >
-                READ MORE <span className="ml-1">→</span>
-              </Link>
+              <ol className="text-left text-sm text-gray-600 space-y-2 ml-4">
+                <li>1. Go to Contentful → Content model</li>
+                <li>2. Create a content type with API Identifier: <code className="bg-gray-200 px-1 rounded">blog</code></li>
+                <li>3. Add fields: title, excerpt, content, image, category, date, slug</li>
+                <li>4. Go to Content → Add entry → Select your content type</li>
+                <li>5. Fill in all fields and <strong>Publish</strong></li>
+              </ol>
+              <p className="text-xs text-gray-500 mt-3">
+                Check the browser console (F12) for detailed error messages.
+              </p>
             </div>
           </div>
-        ))}
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogs.map((blog) => (
+              <div
+                key={blog.id}
+                className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02] flex flex-col group"
+              >
+                <Link href={`/blogs/${blog.slug}`}>
+                  <div className="w-full h-48 relative overflow-hidden">
+                    <img
+                      src={blog.img}
+                      alt={blog.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-[#0B3D91] text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        {blog.category}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="text-sm text-gray-500 mb-2">{blog.date}</div>
+                  <Link href={`/blogs/${blog.slug}`}>
+                    <h3 className="text-xl font-bold text-black mb-3 group-hover:text-[#0B3D91] transition-colors">
+                      {blog.title}
+                    </h3>
+                  </Link>
+                  <p className="text-gray-700 text-[15px] mb-4 flex-grow">
+                    {blog.excerpt}
+                  </p>
+                  <Link
+                    href={`/blogs/${blog.slug}`}
+                    className="text-[#0B3D91] font-semibold text-sm mt-auto inline-flex items-center hover:text-[#ffc107] transition-colors"
+                  >
+                    READ MORE <span className="ml-1">→</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Blogs;
 
